@@ -5,8 +5,8 @@ function HomePage(props) {
     const history = useHistory()
 
     function handleClick() {
-        history.push("/tasks/list")
-   }
+        history.push("/tasks")
+    }
 
     return (
         <div>

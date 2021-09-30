@@ -1,9 +1,26 @@
-import React from 'react'
+import { useHistory } from 'react-router-dom'
+import TaskSummary from './TaskSummary'
 
-function TaskList(props) {
+function TaskList({tasks}) {
+
+    const history = useHistory()
+
+   function handleClick() {
+        history.push(`/tasks/edit`)
+    } 
+
+    function handleClick2() {
+        history.push(`/`)
+    } 
+
+    const mappedTask = tasks.map(task => <TaskSummary key={task.id} task={task} />)
+
     return (
         <div>
-        <h1>My List</h1>
+        <button onClick={ handleClick2 }>Go Back to Home Page</button>
+        <h1>My Tasks</h1>
+        <>{mappedTask}</>
+        <button onClick={ handleClick }>Edit Tasks</button>
         </div>
         )
 }
